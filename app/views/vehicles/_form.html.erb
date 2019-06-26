@@ -1,0 +1,19 @@
+<%= simple_form_for(@vehicle) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+
+    <%#= f.input :vehicle_brand_id, as: :select, collection: VehicleBrand.order(:name), wrapper_html: { class: '' }, input_html: {class: "brand"} %>
+    <%= f.input :vehicle_brand_id, as: :select, collection: VehicleBrand.order(:name), wrapper_html: { class: '' }, input_html: {class: "brand"} %>
+    <%= f.grouped_collection_select :vehicle_model_id, VehicleBrand.order(:name), :vehicle_model, :name, :id, :name, { include_blank: true}, class: 'form-control' %>
+
+    <%#= f.association :vehicle_brand, label: "Brand" %>
+    <%#= f.association :vehicle_model, label: "Model" %>
+    <%= f.input :chassis_number %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

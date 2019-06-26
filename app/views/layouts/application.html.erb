@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Saturn</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <% if notice %>
+        <p class="alert alert-success h6"><%= notice.html_safe %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger h6"><%= alert.html_safe %></p>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

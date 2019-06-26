@@ -1,0 +1,42 @@
+
+<table class="table pt-4">
+  <tr>
+    <th>Year Model</th>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Chassis Number</th>
+  </tr>
+  <tr>
+    <td><%= @vehicle.year_model %></td>
+    <td><%= @vehicle.vehicle_brand.name %></td>
+    <td><%= @vehicle.vehicle_model.name %></td>
+    <td><%= @vehicle.chassis_number %></td>
+  </tr>
+</table>
+
+<h3 class="pt-4">Available Parts:</h3>
+<table class="table">
+  <tr>
+    <th>Part</th>
+    <th>Price</th>
+    <th>Supplier</th>
+  </tr>
+  <% @vehicle.vehicle_parts.each do |vparts| %>
+    <tr>
+      <td><%= vparts.part.name %></td>
+      <td></td>
+      <td></td>
+        <% vparts.prices.each do |pr| %>
+        <tr>
+          <td></td>
+          <td><%= format_currency(pr.price) %></td>
+          <td><%= pr.supplier.name %></td>
+        </tr>
+        <% end %>
+    </tr>
+  <% end %>
+</table>
+
+
+<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Back', vehicles_path %>

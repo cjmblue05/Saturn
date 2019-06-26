@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Vehicle Parts</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Vehicle</th>
+      <th>Part</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vehicle_parts.each do |vehicle_part| %>
+      <tr>
+        <td><%= vehicle_part.vehicle_name %></td>
+        <td><%= vehicle_part.part.name %></td>
+        <td><%= link_to 'Show', vehicle_part %></td>
+        <td><%= link_to 'Edit', edit_vehicle_part_path(vehicle_part) %></td>
+        <td><%= link_to 'Destroy', vehicle_part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vehicle Part', new_vehicle_part_path %>
+
+
+<%= paginate @vehicle_parts %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Vehicles</h1>
+
+<%= render 'ransack' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Year model</th>
+      <th>Vehicle brand</th>
+      <th>Vehicle model</th>
+      <th>Chassis number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vehicles.order( :vehicle_brand_id, :year_model).each do |vehicle| %>
+      <tr>
+        <td><%= vehicle.year_model %></td>
+        <td><%= vehicle.vehicle_brand.name %></td>
+        <td><%= vehicle.vehicle_model.name %></td>
+        <td><%= vehicle.chassis_number %></td>
+        <td><%= link_to 'View Parts', vehicle %></td>
+        <!-- <td><%#= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
+        <td><%#= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= paginate @vehicles %>

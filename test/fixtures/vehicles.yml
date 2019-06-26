@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year_model: 
+  vehicle_brand_id: 1
+  vehicle_model_id: 1
+  chassis_number: MyString
+
+two:
+  year_model: 
+  vehicle_brand_id: 1
+  vehicle_model_id: 1
+  chassis_number: MyString
